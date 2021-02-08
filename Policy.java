@@ -223,12 +223,12 @@ public class Policy
          insuranceCost += AGE_FEE;
       }
       
-      if (policySmokingStatus.equals("Smoker"))
+      if (policySmokingStatus.equalsIgnoreCase("Smoker"))
       { 
          insuranceCost += SMOKING_FEE;
       }
       
-      if (bmi > 35)
+      if (getBMI() > 35)
       {
          insuranceCost += bmiFee;
       }
