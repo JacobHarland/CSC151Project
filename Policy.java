@@ -194,10 +194,9 @@ public class Policy
    */
    public double getBMI()
    {
-      double bmi = 0;
+      final double CONVFACTOR = 703.0;
       
-      bmi = (policyWeight * 703.0) / (policyHeight * policyHeight);
-      return  bmi;
+      return (policyWeight * CONVFACTOR) / (policyHeight * policyHeight);      
    }
 
    /**
@@ -212,13 +211,17 @@ public class Policy
       //IF BMI over 35 then Additional Fee = ( BMI – 35 ) * 20      
       final double BASE_FEE = 600;
       final double AGE_FEE = 75;
-      final double SMOKING_FEE = 100;      
+      final double SMOKING_FEE = 100; 
+      final double FEE_PER_BMI = 20;     
       double insuranceCost = 0;
       double bmiFee=0;
       
-      bmiFee = (getBMI() - 35) * 20;
+      final int AGE_THRESHOLD = 50;
+      final int BMI_THRESHOLD = 35;
       
-      if (policyAge > 50)
+      bmiFee = (getBMI() - BMI_THRESHOLD) * FEE_PER_BMI;
+      
+      if (policyAge > AGE_THRESHOLD) //over 50 years
       {
          insuranceCost += AGE_FEE;
       }
@@ -228,11 +231,12 @@ public class Policy
          insuranceCost += SMOKING_FEE;
       }
       
-      if (getBMI() > 35)
+      //Call the getBMI method
+      if (getBMI() > BMI_THRESHOLD) // BMI over 35
       {
-         insuranceCost += bmiFee;
+         insuranceCost += ((getBMI() - BMI_THRESHOLD) * FEE_PER_BMI);
       }
-                 
+                       
       return insuranceCost + BASE_FEE;     
    }       
 }
