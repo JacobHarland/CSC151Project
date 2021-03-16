@@ -2,8 +2,8 @@ public class Policy
 {
    //variables
    private String policyNumber, providerName, policyFirstName, policyLastName, policySmokingStatus;
-   private int policyAge, bmi;
-   private double policyHeight, policyWeight; 
+   private int bmi;
+   private double policyHeight, policyWeight, policyAge;
    
    
    /**
@@ -32,7 +32,7 @@ public class Policy
       @param polHeight The policy members height
       @param polWeight The policy members weight       
    */
-   public Policy(String polNumber, String provName, String polFirstName, String polLastName, String polSmokingStatus, int polAge, double polHeight, double polWeight)
+   public Policy(String polNumber, String provName, String polFirstName, String polLastName, String polSmokingStatus, double polAge, double polHeight, double polWeight)
    {
       policyNumber = polNumber;     
       providerName = provName;
@@ -93,7 +93,7 @@ public class Policy
       The setsetpolicyAgeHERE method sets the policy members age
       @param polAge The policy members age
    */
-   public void setpolicyAge(int polAge)
+   public void setpolicyAge(double polAge)
    {
       policyAge = polAge;
    }
@@ -165,7 +165,7 @@ public class Policy
       getPolicyAge method
       @return policyAge The policy members age
    */
-   public int getPolicyAge()
+   public double getPolicyAge()
    {
       return policyAge;
    }
