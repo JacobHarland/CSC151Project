@@ -21,6 +21,9 @@ public class Project1_Jacob_Harland
      
          int intValueOfSmokers=0, intValueOfNonSmokers=0;
          
+         Policy pol;
+         PolicyHolder polHol;
+         
          File file = new File("PolicyInformation.txt");
          Scanner inputFile = new Scanner(file);
          
@@ -53,7 +56,8 @@ public class Project1_Jacob_Harland
                   inputFile.nextLine();
                }
            
-           Policy pol = new Policy(polNumber, provName, polFirstName, polLastName, polSmokingStatus, polAge, polHeight, polWeight);
+           Policy pol = new Policy(provName, info);
+           PolicyHolder polHold = new PolicyHolder(polNumber, provName, polFirstName, polLastName, polSmokingStatus, polAge, polHeight, polWeight);
            
            policyList.add(pol);
          } 
@@ -82,7 +86,7 @@ public class Project1_Jacob_Harland
          }
          
          System.out.println ("\n\nThe number of policies with a smoker is: " + intValueOfSmokers);
-         System.out.println ("The number of policies with a non-smoker is: " + intValueOfNonSmokers);        
+         System.out.println ("The number of policies with a non-smoker is: " + intValueOfNonSmokers);       
       } 
       
       catch(IOException ex)//If something goes wrong, an IOException is "thrown" to us, and we "catch" it and deal with it

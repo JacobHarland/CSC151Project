@@ -3,6 +3,7 @@ public class Policy
    //variables
    private static int instanceCount = 0;
    private String providerName;
+   private PolicyHolder info;//AGGREGATION
       
    /**
       No arg constructor
@@ -10,16 +11,17 @@ public class Policy
    public Policy()
    {     
       providerName = "";
-      instanceCount++; 
    }
   
    /**
       Constructor that accepts arguements
       @param provName The providers name       
    */
-   public Policy(String provName)
+   public Policy(PolicyHolder info, String provName)
    {
-      providerName = provName; 
+      this.info = new PolicyHolder(info);//deep copy
+      providerName = provName;
+      instanceCount++; 
    }
    
    /**
@@ -60,22 +62,22 @@ public class Policy
       final int AGE_THRESHOLD = 50;
       final int BMI_THRESHOLD = 35;
       
-      bmiFee = (getBMI() - BMI_THRESHOLD) * FEE_PER_BMI;
+      bmiFee = (info.getBMI() - BMI_THRESHOLD) * FEE_PER_BMI;
       
-      if (policyAge > AGE_THRESHOLD) //over 50 years
+      if (info.policyAge > AGE_THRESHOLD) //over 50 years
       {
          insuranceCost += AGE_FEE;
       }
       
-      if (policySmokingStatus.equalsIgnoreCase("Smoker"))
+      if (info.policySmokingStatus.equalsIgnoreCase("Smoker"))
       { 
          insuranceCost += SMOKING_FEE;
       }
       
       //Call the getBMI method
-      if (getBMI() > BMI_THRESHOLD) // BMI over 35
+      if (info.getBMI() > BMI_THRESHOLD) // BMI over 35
       {
-         insuranceCost += ((getBMI() - BMI_THRESHOLD) * FEE_PER_BMI);
+         insuranceCost += ((info.getBMI() - BMI_THRESHOLD) * FEE_PER_BMI);
       }
                        
       return insuranceCost + BASE_FEE;     
