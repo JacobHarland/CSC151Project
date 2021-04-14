@@ -13,7 +13,7 @@ public class PolicyHolder
    /**
       No arg constructor
    */
-   public Policy()
+   public PolicyHolder()
    {
       policyNumber = "";     
       policyFirstName = "";
@@ -34,7 +34,7 @@ public class PolicyHolder
       @param polHeight The policy members height
       @param polWeight The policy members weight       
    */
-   public Policy(String polNumber, String polFirstName, String polLastName, String polSmokingStatus, double polAge, double polHeight, double polWeight)
+   public PolicyHolder(String polNumber, String polFirstName, String polLastName, String polSmokingStatus, double polAge, double polHeight, double polWeight)
    {
       policyNumber = polNumber;     
       policyFirstName = polFirstName;
@@ -241,20 +241,4 @@ public class PolicyHolder
       return str;
    }
 }
-
-
-
-
-
-
-
-
-Policyholder's Weight: 110.0 pounds
-
-Policyholder's BMI: 18.30
-
-Policy Price: $700.00
-
-      policyHeight = 0;
-      policyWeight = 0;
 
