@@ -1,6 +1,7 @@
 public class Policy
 {
    //variables
+   private static int instanceCount = 0;
    private String providerName;
       
    /**
@@ -8,7 +9,8 @@ public class Policy
    */
    public Policy()
    {     
-      providerName = ""; 
+      providerName = "";
+      instanceCount++; 
    }
   
    /**
@@ -47,6 +49,15 @@ public class Policy
       String str = "Provider Name: " + providerName;
       
       return str;
+   }
+   
+    /**
+      getInstanceCount method returns the number of instances of this class that have been created
+      @return The value in the instanceCount field
+   */
+   public int getInstanceCount()
+   {
+      return instanceCount;
    }
 }
 
