@@ -37,6 +37,17 @@ public class Policy
    {
       return providerName;
    }
+   
+   /**
+      toString method
+      @return A string indicating the objects provider namer
+   */
+   public String toString()
+   {
+      String str = "Provider Name: " + providerName;
+      
+      return str;
+   }
 }
 
 
