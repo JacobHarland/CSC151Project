@@ -183,47 +183,6 @@ public class PolicyHolder
    }
 
    /**
-      getInsuranceCost method
-      @return The insurance cost
-   */
-   public double getInsuranceCost()
-   {          
-      //base fee of $600
-      //IF over 50 then additional fee of $75
-      //IF SMOKER then + $100
-      //IF BMI over 35 then Additional Fee = ( BMI – 35 ) * 20      
-      final double BASE_FEE = 600;
-      final double AGE_FEE = 75;
-      final double SMOKING_FEE = 100; 
-      final double FEE_PER_BMI = 20;     
-      double insuranceCost = 0;
-      double bmiFee=0;
-      
-      final int AGE_THRESHOLD = 50;
-      final int BMI_THRESHOLD = 35;
-      
-      bmiFee = (getBMI() - BMI_THRESHOLD) * FEE_PER_BMI;
-      
-      if (policyAge > AGE_THRESHOLD) //over 50 years
-      {
-         insuranceCost += AGE_FEE;
-      }
-      
-      if (policySmokingStatus.equalsIgnoreCase("Smoker"))
-      { 
-         insuranceCost += SMOKING_FEE;
-      }
-      
-      //Call the getBMI method
-      if (getBMI() > BMI_THRESHOLD) // BMI over 35
-      {
-         insuranceCost += ((getBMI() - BMI_THRESHOLD) * FEE_PER_BMI);
-      }
-                       
-      return insuranceCost + BASE_FEE;     
-   }
-   
-   /**
       toString method
       @return A string indicating the objects provider namer
    */
@@ -236,8 +195,8 @@ public class PolicyHolder
                    "\nPolicyholder's Smoking Status (Y/N): " + policySmokingStatus +
                    "\nPolicyholder's Height: " + policyHeight +
                    "\nPolicyholder's Weight: " + policyWeight +
-                   "\nPolicyholder's BMI: " + getBMI() +
-                   "\nPolicy Price: " + getInsuranceCost();                         
+                   "\nPolicyholder's BMI: " + getBMI();
+                                            
       return str;
    }
 }
