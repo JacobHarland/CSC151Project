@@ -221,7 +221,40 @@ public class PolicyHolder
       }
                        
       return insuranceCost + BASE_FEE;     
-   }       
+   }
+   
+   /**
+      toString method
+      @return A string indicating the objects provider namer
+   */
+   public String toString()
+   {
+      String str = "Policy Number: " + policyNumber +
+                   "\nPolicyholder's First Name: " + policyFirstName +
+                   "\nPolicyholder's Last Name: " + policyLastName +
+                   "\nPolicyholder's Age: " + policyAge +
+                   "\nPolicyholder's Smoking Status (Y/N): " + policySmokingStatus +
+                   "\nPolicyholder's Height: " + policyHeight +
+                   "\nPolicyholder's Weight: " + policyWeight +
+                   "\nPolicyholder's BMI: " + getBMI() +
+                   "\nPolicy Price: " + getInsuranceCost();                         
+      return str;
+   }
 }
 
+
+
+
+
+
+
+
+Policyholder's Weight: 110.0 pounds
+
+Policyholder's BMI: 18.30
+
+Policy Price: $700.00
+
+      policyHeight = 0;
+      policyWeight = 0;
 
